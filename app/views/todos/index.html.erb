@@ -14,7 +14,7 @@
         <%= f.text_field :title, value: todo["title"] %>
         <%= f.submit "Update" %>
       <% end %>
-      <%= link_to "Delete", todo_path(id), method: :delete %>
+      <%= button_to "Delete", todo_path(id), method: :delete, form: { class: 'delete-form' } %>
     </li>
   <% end %>
 </ul>
