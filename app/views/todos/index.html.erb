@@ -11,3 +11,5 @@
     <%= render partial: 'todo', locals: { id: id, todo: todo } %>
   <% end %>
 </ul>
+
+<%= javascript_include_tag 'application', 'data-turbo-track': 'load' %>

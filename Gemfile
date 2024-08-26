@@ -68,3 +68,6 @@ end
 
 # Firebase SDK
 gem 'firebase', '~> 0.2.8'
+
+# For postgresql connection
+gem "pg"
