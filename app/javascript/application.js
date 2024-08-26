@@ -55,7 +55,7 @@ function updateTodos(todos) {
 
 function saveTodosToDatabase(todos) {
     for (const [id, todo] of Object.entries(todos)) {
-        fetch('/todos/save_from_firebase', {
+        fetch('/database/save_from_firebase', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
