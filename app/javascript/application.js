@@ -4,7 +4,7 @@
 
 
 
-document.addEventListener('turbo:load', () => {
+// document.addEventListener('turbo:load', () => {
     // Your Firebase code here remains the same
     const firebaseConfig = {
         apiKey: "your-api-key",
@@ -47,7 +47,7 @@ document.addEventListener('turbo:load', () => {
                 .catch(error => console.error('Error fetching the todo partial:', error));
         }
     }
-});
+// });
 
 
 
