@@ -1,7 +1,6 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 // import "@hotwired/turbo-rails"
 // import "controllers"
-
 const firebaseConfig = {
     apiKey: "AIzaSyAqCDQ3IsupyhP0uKr90bou3MAbfY3ooiM",
     authDomain: "concepthealth-7b3a9.firebaseapp.com",
@@ -18,9 +17,12 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 const todosRef = db.ref('todos');
 
+let x = 0;
+
 todosRef.on('value', (snapshot) => {
-    console.log("updates received!");
-    // alert("updates received!");
+    x++;
+    console.log("updates received: ", x);
+    alert("updates received: ", x);
     const todos = snapshot.val();
     updateTodos(todos);
 });
@@ -46,6 +48,7 @@ function updateTodos(todos) {
             .catch(error => console.error('Error fetching the todo partial:', error));
     }
 }
+
 
 // function updateTodos(todos) {
 //     const todoList = document.querySelector('ul');
