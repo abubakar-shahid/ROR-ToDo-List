@@ -1,9 +1,29 @@
 <!-- app/views/todos/_todo.html.erb -->
 <li id="todo-<%= id %>">
+  <%= form_with url: todo_path(id), method: :patch, remote: true, local: true, data: { turbo: false } do |f| %>
+    <%= f.check_box :completed, checked: todo[:completed] %>
+    <%= f.text_field :title, value: todo[:title] %>
+    <%= f.submit "Update" %>
+  <% end %>
+  <%= button_to "Delete", todo_path(id), method: :delete, remote: true, form: { class: 'delete-form' }, data: { turbo: false } %>
+</li>
+
+
+
+
+
+
+
+<%
+=begin%>
+ <!-- app/views/todos/_todo.html.erb -->
+<li id="todo-<%= id %>">
   <%= form_with url: todo_path(id), method: :patch, local: true do |f| %>
     <%= f.check_box :completed, checked: todo[:completed] %>
     <%= f.text_field :title, value: todo[:title] %>
     <%= f.submit "Update" %>
   <% end %>
   <%= button_to "Delete", todo_path(id), method: :delete, form: { class: 'delete-form' } %>
-</li>
+</li> 
+<%
+=end%>
