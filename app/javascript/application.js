@@ -28,7 +28,7 @@ todosRef.on('value', (snapshot) => {
     console.log("updated recieved: ", x);
     const todos = snapshot.val();
     updateTodos(todos);
-    saveTodosToDatabase(todos);
+    // saveTodosToDatabase(todos);
 });
 
 function updateTodos(todos) {
@@ -53,21 +53,21 @@ function updateTodos(todos) {
     }
 }
 
-function saveTodosToDatabase(todos) {
-    for (const [id, todo] of Object.entries(todos)) {
-        fetch('/database/save_from_firebase', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            },
-            body: JSON.stringify({ firebase_id: id, title: todo.title, completed: todo.completed })
-        })
-            .then(response => response.json())
-            .then(data => console.log('Saved to DB:', data))
-            .catch(error => console.error('Error saving to DB:', error));
-    }
-}
+// function saveTodosToDatabase(todos) {
+//     for (const [id, todo] of Object.entries(todos)) {
+//         fetch('/database/save_from_firebase', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+//             },
+//             body: JSON.stringify({ firebase_id: id, title: todo.title, completed: todo.completed })
+//         })
+//             .then(response => response.json())
+//             .then(data => console.log('Saved to DB:', data))
+//             .catch(error => console.error('Error saving to DB:', error));
+//     }
+// }
 // });
 
 
